@@ -12,6 +12,7 @@ wss.on("connection", (socket) => {
     console.log("User connected #" + userCount);
 
     socket.on("message", (message) => {
+
         console.log("Message Received: " + message.toString());
 
         for(let i = 0; i < allSockets.length; i++) {
@@ -23,4 +24,5 @@ wss.on("connection", (socket) => {
         //     socket.send(message.toString() + ": sent from the server");
         // }, 1000);
     });
+    
 });
