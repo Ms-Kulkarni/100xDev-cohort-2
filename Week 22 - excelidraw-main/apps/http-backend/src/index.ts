@@ -1,5 +1,5 @@
 import express from "express";
-import jwt from "jsonwebtoken";
+import * as jwt from "jsonwebtoken";
 import { JWT_SECRET } from '@repo/backend-common/config';
 import { middleware } from "./middleware";
 import { CreateUserSchema, SigninSchema, CreateRoomSchema } from "@repo/common/types";
@@ -32,7 +32,7 @@ app.post("/signup", async (req, res) => {
         res.json({
             userId: user.id
         })
-    } catch(e) {
+    } catch (e) {
         res.status(411).json({
             message: "User already exists with this username"
         })
@@ -94,7 +94,7 @@ app.post("/room", middleware, async (req, res) => {
         res.json({
             roomId: room.id
         })
-    } catch(e) {
+    } catch (e) {
         res.status(411).json({
             message: "Room already exists with this name"
         })
@@ -118,13 +118,13 @@ app.get("/chats/:roomId", async (req, res) => {
         res.json({
             messages
         })
-    } catch(e) {
+    } catch (e) {
         console.log(e);
         res.json({
             messages: []
         })
     }
-    
+
 })
 
 app.get("/room/:slug", async (req, res) => {
