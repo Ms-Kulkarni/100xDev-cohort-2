@@ -32,7 +32,6 @@ export function Canvas({
             }
         }
 
-
     }, [canvasRef]);
 
     return <div style={{
@@ -47,13 +46,17 @@ export function Canvas({
 function Topbar({selectedTool, setSelectedTool}: {
     selectedTool: Tool,
     setSelectedTool: (s: Tool) => void
+
 }) {
+
     return <div style={{
             position: "fixed",
             top: 10,
             left: 10
         }}>
+
             <div className="flex gap-t">
+
                 <IconButton 
                     onClick={() => {
                         setSelectedTool("pencil")
@@ -61,6 +64,7 @@ function Topbar({selectedTool, setSelectedTool}: {
                     activated={selectedTool === "pencil"}
                     icon={<Pencil />}
                 />
+
                 <IconButton onClick={() => {
                     setSelectedTool("rect")
                 }} activated={selectedTool === "rect"} icon={<RectangleHorizontalIcon />} ></IconButton>
