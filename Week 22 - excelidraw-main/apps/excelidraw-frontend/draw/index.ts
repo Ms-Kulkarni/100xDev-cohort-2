@@ -24,6 +24,7 @@ export async function initDraw(canvas: HTMLCanvasElement, roomId: string, socket
     const ctx = canvas.getContext("2d");
 
     let existingShapes: Shape[] = await getExistingShapes(roomId)
+    
 
     if (!ctx) {
         return
